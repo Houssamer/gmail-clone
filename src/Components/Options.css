@@ -1,0 +1,40 @@
+.options {
+    display: flex;
+    align-items: center;
+    color: gray;
+    height: 1.9em;
+    padding-left: 10px;
+}
+
+.options > h4 {
+    font-size: .8rem;
+    padding-left: 10px;
+    flex: 1;
+}
+
+.options > p {
+    font-weight: 600;
+    text-align: right;
+    padding-right: 10px;
+    display: none;
+}
+
+.selected {
+    background-color: rgba(255, 37, 37, 0.336);
+    color: rgb(173, 0, 0);
+    border-radius: 5px;
+}
+.selected > p {
+    display: inline;
+}
+
+.options:hover {
+    background-color: rgba(255, 37, 37, 0.336);
+    color: rgb(173, 0, 0);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.options:hover > p {
+    display: inline;
+}

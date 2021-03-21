@@ -1,0 +1,40 @@
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 0em;
+    border-bottom: 1px solid lightgray;
+}
+
+.row:hover {
+    box-shadow: 1px 3px 5px lightgrey;
+    cursor: pointer;
+}
+
+.row__leftSide {
+    display: flex;
+    align-items: center;
+}
+
+.row__middle {
+    display: flex;
+    align-items: center;
+}
+
+.row__middle > h4 {
+    font-weight: 500;
+}
+
+.row__middle > h5 {
+    font-weight: 500;
+    max-width: 200px;
+    color: gray;
+    margin-left: .5em;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.row__rightSide {
+    padding-right: 1em;
+}

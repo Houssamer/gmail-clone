@@ -1,56 +1,59 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+import React, { useEffect } from 'react';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+import Header from './Components/Header';
+import SideBar from './Components/SideBar';
+import EmailList from './Components/Emails/EmailList';
+import NewMail from './Components/Emails/NewMail';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectOpenMail } from './features/mailSlice';
+import Mail from './Components/Emails/Mail';
+import { auth } from './firebase';
+import { login, selectUser } from './features/userSlice';
+import Login from './Login';
 
 function App() {
+  
+  const openMail = useSelector(selectOpenMail);
+  const user = useSelector(selectUser);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    auth.onAuthStateChanged(userAuth => {
+        if (userAuth) {
+          dispatch(login({
+            displayName: userAuth.displayName,
+            email: userAuth.email,
+            photoUrl: userAuth.photoURL
+          }))
+        }
+    })
+  }, [dispatch])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+      {!user ? <Login /> : (
+        <>
+          <Header />
+          <div className="app__content">
+            <SideBar />
+            <Router>
+              <Switch>
+                <Route path='/mail'>
+                  <Mail />
+                </Route>
+                <Route path="/">
+                  <EmailList />
+                </Route>
+              </Switch>
+            </Router>
+           </div>
+          {openMail && <NewMail />}
+        </>
+      ) }
     </div>
   );
 }

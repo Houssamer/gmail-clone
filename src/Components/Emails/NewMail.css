@@ -1,0 +1,80 @@
+.newMail {
+    position: absolute;
+    bottom: 0;
+    right: 2em;
+    width: 30%;
+}
+
+.newMail__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(56, 56, 56);
+    color: white;
+    padding: 0 1em;
+    height: 3em;
+}
+
+.newMail__header > h4 {
+    font-weight: 500;
+}
+
+.closeIcon {
+    cursor: pointer;
+}
+
+.newMail__form {
+    height: 20em;
+    display: flex;
+    flex-direction: column;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.newMail__to {
+    height: 3em;
+    border: 1px solid whitesmoke;
+    outline: none;
+    padding-left: 10px;
+}
+
+.newMail__subject {
+    height: 3em;
+    border: 1px solid whitesmoke;
+    outline: none;
+    padding-left: 10px;
+}
+.newMail__message {
+    border: 1px solid whitesmoke;
+    outline: none;
+    overflow: break-word;
+    overflow-x: hidden;
+    padding-left: 10px;
+    height: 14em;
+}
+
+.newMail__submit {
+    height: 3em;
+    background-color: rgb(56, 56, 56);
+}
+
+.newMail__button {
+    background-color: rgb(73, 73, 206) !important;
+    margin-left: 2em !important;
+    margin-top: .7em !important;
+    color: white !important;
+    width: 5em;
+    border: none;
+    outline: none;
+    font-weight: 600;
+    border-radius: 5px;
+    height: 2em;
+}
+
+.newMail__button:hover {
+    cursor: pointer;
+    background-color: rgb(42, 42, 139) !important;
+}

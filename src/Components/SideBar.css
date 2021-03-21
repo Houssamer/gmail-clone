@@ -1,0 +1,24 @@
+.sideBar {
+    flex: 0.3;
+}
+
+.sideBar__button {
+    margin-top: 50px !important;
+    margin-left: 10px !important;
+    margin-bottom: 15px !important;
+    color: gray;
+    padding: 15px !important;
+    border-radius: 30px !important;
+    box-shadow: 0px 4px 7px gray;
+}
+
+.sideBar__options {
+    margin-left: 20px;
+}
+
+.sideBar__footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
